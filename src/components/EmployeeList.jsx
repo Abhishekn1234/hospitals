@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { Card, Button, Table } from 'react-bootstrap';
 import { EyeOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
   const navigate = useNavigate();
@@ -37,7 +36,9 @@ const EmployeeList = () => {
   const navi = () => {
     navigate('/employee');
   };
-  
+   const depart=()=>{
+    navigate('/departmentCard')
+   }
   const handleUpdate = (id) => {
     try {
       navigate(`/update_employee/${id}`);
@@ -73,9 +74,7 @@ const EmployeeList = () => {
                 <td>{employee.name}</td>
                 <td>{employee.employeeNumber}</td>
                 <td>{employee.age}</td>
-                <td>
-                  <Link to={`/api/employee/${employee.department}`}>{employee.department}</Link>
-                  </td>
+                <td onClick={depart}>{employee.department}</td>
                 <td>
                   {employee.profileImage && (
                     <img

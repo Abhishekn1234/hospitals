@@ -28,13 +28,13 @@ const LocationPicker = () => {
       <Input
         placeholder="Enter Location"
         onChange={handleLocationChange}
-        required style={{width:"min-content",marginLeft:"100px"}}
+        required style={{width:"min-content"}}
       /><DatePicker
       showTime
       format="YYYY-MM-DD HH:mm:ss"
       onChange={handleDateChange}
       placeholder="Select Date and Time"style={{width:"min-content"}}
-       aria-required 
+       aria-required
     />
       <Button type="primary" onClick={handleGoToLocation} >
         Go to Location

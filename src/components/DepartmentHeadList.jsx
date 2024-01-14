@@ -5,7 +5,6 @@ import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRo
 import DeleteIcon from '@mui/icons-material/Delete';
 import UpdateIcon from '@mui/icons-material/Update';
 import { EyeOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
 
 const DepartmentHeadList = () => {
   const [departmentHeads, setDepartmentHeads] = useState([]);
@@ -34,7 +33,9 @@ const DepartmentHeadList = () => {
   const department =(id)=>{
     navigate(`/profilehead/${id}`);
   }
- 
+  const dep=()=>{
+    navigate('/departmentpage');
+  }
   const handleDeleteHead = async (id) => {
     try {
       await axios.delete(`http://localhost:3002/api/delete_department_head/${id}`);
@@ -68,14 +69,7 @@ const DepartmentHeadList = () => {
                 <TableCell>{head.employeeNumber}</TableCell>
                 <TableCell>{head.age}</TableCell>
                 <TableCell>{head.profileDescription}</TableCell>
-                <TableCell>
-                <Link to={`/api/department_heads/${head.department}`}>{head.department}
-                <Button>
-                  <EyeOutlined style={{ fontSize: '24px', color: '#1890ff' }} />
-                </Button>
-                
-                </Link>
-                  </TableCell>
+                <TableCell onClick={dep}>{head.department}</TableCell>
                 <TableCell>
                   {head.profileImage && (
                     <img

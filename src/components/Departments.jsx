@@ -1,12 +1,10 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DepartmentForm from './DepartmentForm';
-
+import Department from './Department';
 import { useNavigate } from 'react-router-dom';
 import { Card, Table, Button, Space, Spin, Modal, message } from 'antd';
 import { EyeOutlined } from '@ant-design/icons';
-import { Alert } from 'antd';
 import { Link } from 'react-router-dom';
 import {
   PlusOutlined,
@@ -163,28 +161,15 @@ const Departments = () => {
   return (
     <Card title="Department Management" style={{ backgroundColor: '#f0f2f5', padding: '20px' }}>
       <Spin spinning={loading}>
-              {error && (
-          <Alert
-            message="Error"
-            description={error}
-            type="error"
-            showIcon
-            closable
-            onClose={() => setError(null)}
-          />
-        )}
-
+        {error && <p style={{ color: 'red' }}>{error}</p>}
         <Button type="primary" icon={<PlusOutlined />} onClick={handleAdd} style={{ marginBottom: '16px' }}>
           Add Department
         </Button>
-        {departments.length === 0 && !loading && <p>No departments found.</p>}
-        {departments.length > 0 && (
-          <Table dataSource={departments} columns={columns} rowKey="_id" />
-        )}
+        <Table dataSource={departments} columns={columns} rowKey="_id" />
       </Spin>
      
       {editingDepartment && (
-        <DepartmentForm
+        <Department
           onSubmit={(formData) => handleFormSubmit(formData, editingDepartment._id)}
           onCancel={() => setEditingDepartment(null)}
           initialData={editingDepartment}

@@ -14,7 +14,7 @@ import News from './components/News';
 import Settings from './components/Settings';
 import Products from './components/Products';
 import Departments from './components/Departments';
-import DepartmentForm from './components/DepartmentForm';
+import DepartmentForm from './components/Department';
 import DepartmentHeads from './components/DepartmentHead';
 import DepartmentHeadList from './components/DepartmentHeadList';
 import UpdateForm from './components/Updateform';
@@ -28,14 +28,6 @@ import DepartementHeadCard from './components/DepartementHeadCard';
 import EmployeeDepartmentCard from './components/EmployeeDepartmentCard';
 import DepartmentCard from './components/DepartmentCard';
 import DepartmentCardPage from './components/DepartmentPage';
-import DepartmentP from './components/Departmentpages';
-import Departmentpsychology from './components/Departmentpsychology';
-import Departmentdentistry from './components/Departmentdentistry';
-import Departmentcardiology from './components/Departmentcardiology';
-import Employeecardiology from './components/Employeecardiology';
-import Employeeorthopedics from './components/Employeeorthopedics';
-import EmployeeHomeo from './components/EmployeeHomeo';
-import Employeedentistry from './components/Employeedentistry';
 function App() {
   return (
     <div>
@@ -67,16 +59,6 @@ function App() {
           <Route path='/employeedepartmentcard'element={<EmployeeDepartmentCard/>}/>
           <Route path='/departmentcard'element={<DepartmentCard/>}/>
           <Route path='/departmentpage' element={<DepartmentCardPage/>}/>
-          
-          <Route path="/departmentpagess" element={<DepartmentP/>}/>
-          <Route path='/api/department_heads/psychology' element={<Departmentpsychology/>}/>
-          <Route path='/api/department_heads/dentistry' element={<Departmentdentistry/>}/>
-          <Route path='/api/department_heads/cardiology' element={<Departmentcardiology/>}/>
-          <Route path="/api/employee/cardiology" element={<Employeecardiology/>}/>
-          <Route path="api/employee/orthopedics" element={<Employeeorthopedics/>}/>
-          <Route path="api/employee/homeo" element={<EmployeeHomeo/>}/>
-          
-          <Route path="api/employee/dentisry" element={<Employeedentistry/>}/>
         </Routes>
       </Router>
     </div>
